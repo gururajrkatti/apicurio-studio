@@ -1,5 +1,9 @@
 language: java
 
+arch:
+  - amd64
+  - ppc64le
+
 before_cache:
   - "rm -rf $HOME/.m2/repository/io/apicurio"
 
@@ -14,7 +18,7 @@ before_install:
   - echo 'MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx512m"' > ~/.mavenrc
 
 jdk:
-  - oraclejdk8
+  - openjdk8
       
 script:
   - mvn clean install
